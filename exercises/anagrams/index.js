@@ -45,6 +45,7 @@ anagrams('One one', 'One one c');
 
 // solution #2
 
+/*
 function anagrams(stringA, stringB) {
 	const charMapA = buildCharMap(stringA);
 	const charMapB = buildCharMap(stringB);
@@ -73,6 +74,19 @@ function anagrams(stringA, stringB) {
 		return charMap;
 	}
 }
+*/
 
+// solution #3
+
+function anagrams(stringA, stringB) {
+	const sortedCleanA = cleanString(stringA).split('').sort().join();
+	const sortedCleanB = cleanString(stringB).split('').sort().join();
+
+	return sortedCleanA === sortedCleanB;
+
+	function cleanString(string) {
+		return string.replace(/[^\w]/g, '').toLowerCase();
+	}
+}
 // word.replace(/[^\w]/g, '').toLowerCase()
 module.exports = anagrams;
