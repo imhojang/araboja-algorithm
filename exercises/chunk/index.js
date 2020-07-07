@@ -9,23 +9,44 @@
 // chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
 
 // solution #1
+// function chunk(array, size) {
+// 	let chunks = [];
+// 	let collection = [];
+
+// 	for (let i = 0; i < array.length; i++) {
+// 		chunks.push(array[i]);
+
+// 		if ((i + 1) % size === 0) {
+// 			collection.push(chunks);
+// 			chunks = [];
+// 		} else if (i === array.length - 1) {
+// 			collection.push(chunks);
+// 		}
+// 	}
+
+// 	return collection;
+// }
+
+// solution #2
+
 function chunk(array, size) {
-	let chunks = [];
-	let collection = [];
+	const chunked = [];
 
-	for (let i = 0; i < array.length; i++) {
-		chunks.push(array[i]);
+	for (let element of array) {
+		const last = chunked[chunked.length - 1];
 
-		if ((i + 1) % size === 0) {
-			collection.push(chunks);
-			chunks = [];
-		} else if (i === array.length - 1) {
-			collection.push(chunks);
+		if (!last || last.length === size) {
+			chunked.push([element]);
+		} else {
+			last.push(element);
 		}
 	}
 
-	return collection;
+	return chunked;
 }
+
+
+
 
 // chunk([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 2);
 
