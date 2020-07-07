@@ -43,7 +43,7 @@ anagrams('One one', 'One one c');
 
 */
 
-// solution #2
+// solution #2 - build charmap helper fxn & compare obj keys length
 
 /*
 function anagrams(stringA, stringB) {
@@ -76,16 +76,13 @@ function anagrams(stringA, stringB) {
 }
 */
 
-// solution #3
+// solution #3 - using sort
 
 function anagrams(stringA, stringB) {
-	const sortedCleanA = cleanString(stringA).split('').sort().join();
-	const sortedCleanB = cleanString(stringB).split('').sort().join();
-
-	return sortedCleanA === sortedCleanB;
+	return cleanString(stringA) === cleanString(stringB);
 
 	function cleanString(string) {
-		return string.replace(/[^\w]/g, '').toLowerCase();
+		return string.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
 	}
 }
 // word.replace(/[^\w]/g, '').toLowerCase()
