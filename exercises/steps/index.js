@@ -19,6 +19,7 @@
 
 // solution # 1 
 
+/*
 function steps(n) {
   let stepsArr = [];
 
@@ -39,6 +40,23 @@ function steps(n) {
     step = val + spaces.slice(idx);
     console.log(step);
   })
+}
+*/
+
+// solution #2  
+
+function steps(n) {
+  for (let row = 0; row < n; row++) {
+    let step = '';
+    for (let col = 0; col < n; col++) {
+      if (row >= col) {
+        step += '#'
+      } else {
+        step += ' '
+      }
+    }
+    console.log(step);
+  }
 }
 
 module.exports = steps;
