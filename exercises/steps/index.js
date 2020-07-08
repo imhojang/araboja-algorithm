@@ -45,6 +45,7 @@ function steps(n) {
 
 // solution #2 - thinking of it as a matrix
 
+/*
 function steps(n) {
   for (let row = 0; row < n; row++) {
     let step = '';
@@ -58,5 +59,18 @@ function steps(n) {
     console.log(step);
   }
 }
+*/
 
-module.exports = steps;
+function steps(n) {
+  if (n === 0) {
+    debugger;
+    return;
+  } else {
+    console.log (n);
+    steps(n - 1)
+  }
+}
+
+steps(10);
+
+// module.exports = steps;
