@@ -43,7 +43,7 @@ function steps(n) {
 }
 */
 
-// solution #2  
+// solution #2 - thinking of it as a matrix
 
 function steps(n) {
   for (let row = 0; row < n; row++) {
