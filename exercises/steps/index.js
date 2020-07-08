@@ -17,6 +17,28 @@
 //       '### '
 //       '####'
 
-function steps(n) {}
+// solution # 1 
+
+function steps(n) {
+  let stepsArr = [];
+
+  for (let i = 1; i < n + 1; i++) {
+    let pounds = '';
+    for (let j = 0; j < i; j++) {
+      pounds += '#';
+    } 
+    stepsArr.push(pounds);
+  }
+
+  let spaces = ''
+  for (let i = 0; i < n - 1; i++) {
+    spaces += ' ';
+  }
+
+  stepsArr.forEach((val, idx) => {
+    step = val + spaces.slice(idx);
+    console.log(step);
+  })
+}
 
 module.exports = steps;
