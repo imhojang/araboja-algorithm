@@ -17,7 +17,7 @@
 //       '### '
 //       '####'
 
-// solution # 1 
+// solution # 1
 
 /*
 function steps(n) {
@@ -61,16 +61,26 @@ function steps(n) {
 }
 */
 
-function steps(n) {
-  if (n === 0) {
-    debugger;
-    return;
-  } else {
-    console.log (n);
-    steps(n - 1)
-  }
+// solution #3 - recursive solution by me.
+
+function steps(n, space = 0) {
+	if (n === 0) {
+		return;
+	} else {
+		steps(n - 1, space + 1);
+
+		let str = '';
+
+		for (let i = 0; i < n; i++) {
+			str += '#';
+		}
+
+		for (let i = 0; i < space; i++) {
+			str += ' ';
+    }
+    
+		console.log(str);
+	}
 }
 
-steps(10);
-
-// module.exports = steps;
+module.exports = steps;
