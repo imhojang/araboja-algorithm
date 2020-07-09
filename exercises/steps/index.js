@@ -63,6 +63,7 @@ function steps(n) {
 
 // solution #3 - recursive solution by me.
 
+/* 
 function steps(n, space = 0) {
 	if (n === 0) {
 		return;
@@ -81,6 +82,37 @@ function steps(n, space = 0) {
     
 		console.log(str);
 	}
+}
+*/
+
+
+function steps(n) {
+  for (let row = 0; row < n; row++) {
+    let str = ''
+    for (let col = 0; col <n; col++) {
+      str += row >= col ? '#' : ' ';
+    }
+    console.log(str);
+  }
+}
+
+// solution #4 - recursive solution using iterative solution above
+
+function steps(n, row = 0, str = '') {
+  if (row === n) {
+    return;
+  }
+
+  if (str.length === n) {
+    console.log(str);
+    return steps(n, row + 1);
+  }
+
+  if (row >= str.length) {
+    steps(n, row, str + '#');
+  } else {
+    steps(n, row, str + ' ');
+  }
 }
 
 module.exports = steps;
