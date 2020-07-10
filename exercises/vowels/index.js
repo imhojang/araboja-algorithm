@@ -9,13 +9,28 @@
 
 // solution #1 - iterative with hashmap
 
-function vowels(str) {
-	const vowels = { a: 1, e: 1, i: 1, o: 1, u: 1 };
+// function vowels(str) {
+// 	const vowels = { a: 1, e: 1, i: 1, o: 1, u: 1 };
 
+// 	let count = 0;
+
+// 	for (let char of str.toLowerCase()) {
+// 		if (vowels[char]) {
+// 			count++;
+// 		}
+// 	}
+
+// 	return count;
+// }
+
+// solution #2 - iterative with array.includes
+
+function vowels(str) {
 	let count = 0;
+	let vowelChecker = 'aeiou';
 
 	for (let char of str.toLowerCase()) {
-		if (vowels[char]) {
+		if (vowelChecker.includes(char)) {
 			count++;
 		}
 	}
