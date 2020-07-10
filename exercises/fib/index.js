@@ -24,14 +24,11 @@
 // solution #2 - iterative solution
 
 function fib(n) {
-  const fibArr = [];
-  
+	const fibArr = [];
 
 	for (let i = 0; i <= n; i++) {
-		if (i === 0) {
-			fibArr.push(0);
-		} else if (i === 1 || i === 2) {
-			fibArr.push(1);
+		if (i <= 1) {
+			fibArr.push(i);
 		} else {
 			let add = fibArr[fibArr.length - 1] + fibArr[fibArr.length - 2];
 			fibArr.push(add);
@@ -41,7 +38,6 @@ function fib(n) {
 	return fibArr[fibArr.length - 1];
 }
 
-fib(5)
-
+fib(5);
 
 module.exports = fib;
