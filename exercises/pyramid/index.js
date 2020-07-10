@@ -73,24 +73,23 @@
 // solution #4 - recursive with midpoint
 
 function pyramid(n, row = 0, str = '') {
-  const midpoint = Math.floor((n * 2 - 1) / 2);
-  
-  if (row === n) {
-    return;
-  }
+	if (row === n) {
+		return;
+	}
 
-  if (str.length === n * 2 - 1) {
-    console.log(str);
-    return pyramid(n,row + 1);
-  }
+	if (str.length === n * 2 - 1) {
+		console.log(str);
+		return pyramid(n, row + 1);
+	}
 
-  if (str.length >= midpoint - row && str.length <= midpoint + row) {
-    str += '#';
-  } else {
-    str += ' ';
-  }
+	const midpoint = Math.floor((n * 2 - 1) / 2);
 
-  pyramid(n, row, str);
+	let add =
+		str.length >= midpoint - row && str.length <= midpoint + row
+			? '#'
+			: ' ';
+
+	pyramid(n, row, str + add);
 }
 
 module.exports = pyramid;
