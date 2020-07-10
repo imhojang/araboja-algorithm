@@ -34,22 +34,39 @@
 
 // solution #2 recursive solution
 
-function pyramid(n, row = 0, str = '') {
-	if (n === row) {
-		return;
-	}
+// function pyramid(n, row = 0, str = '') {
+// 	if (n === row) {
+// 		return;
+// 	}
 
-	let maxCol = n * 2 - 1;
-	if (str.length === maxCol) {
+// 	let maxCol = n * 2 - 1;
+// 	if (str.length === maxCol) {
+// 		console.log(str);
+// 		return pyramid(n, row + 1);
+// 	}
+
+// 	let sideSpace = n - row - 1;
+// 	if (str.length < sideSpace || str.length >= maxCol - sideSpace) {
+// 		pyramid(n, row, str + ' ');
+// 	} else {
+// 		pyramid(n, row, str + '#');
+// 	}
+// }
+
+// solution #3 - iterative with midpoint
+
+function pyramid(n) {
+	const midpoint = Math.floor((n * 2 - 1) / 2);
+	for (let row = 0; row < n; row++) {
+		let str = '';
+		for (let col = 0; col < n * 2 - 1; col++) {
+			if (col >= midpoint - row && col <= midpoint + row) {
+				str += '#';
+			} else {
+				str += ' ';
+			}
+		}
 		console.log(str);
-		return pyramid(n, row + 1);
-	}
-
-	let sideSpace = n - row - 1;
-	if (str.length < sideSpace || str.length >= maxCol - sideSpace) {
-		pyramid(n, row, str + ' ');
-	} else {
-		pyramid(n, row, str + '#');
 	}
 }
 
