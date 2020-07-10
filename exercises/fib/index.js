@@ -10,34 +10,30 @@
 
 // solution #1 - recursive solution
 
-// function fib(n) {
-
-//   if (n === 0) {
-//     return 0;
-//   } else if (n === 1 || n === 2) {
-//     return 1;
-//   } else {
-//     return fib(n - 1) + fib(n - 2)
-//   }
-// }
+function fib(n) {
+	if (n <= 1) {
+		return n;
+	}
+	return fib(n - 1) + fib(n - 2);
+}
 
 // solution #2 - iterative solution
 
-function fib(n) {
-	const fibArr = [];
+// function fib(n) {
+// 	const fibArr = [];
 
-	for (let i = 0; i <= n; i++) {
-		if (i <= 1) {
-			fibArr.push(i);
-		} else {
-			let add = fibArr[fibArr.length - 1] + fibArr[fibArr.length - 2];
-			fibArr.push(add);
-		}
-	}
+// 	for (let i = 0; i <= n; i++) {
+// 		if (i <= 1) {
+// 			fibArr.push(i);
+// 		} else {
+// 			let add = fibArr[fibArr.length - 1] + fibArr[fibArr.length - 2];
+// 			fibArr.push(add);
+// 		}
+// 	}
 
-	return fibArr[fibArr.length - 1];
-}
+// 	return fibArr[fibArr.length - 1];
+// }
 
-fib(5);
+// fib(5);
 
 module.exports = fib;
