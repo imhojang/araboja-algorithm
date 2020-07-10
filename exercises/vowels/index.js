@@ -7,6 +7,20 @@
 //   vowels('Why do you ask?') --> 4
 //   vowels('Why?') --> 0
 
-function vowels(str) {}
+// solution #1 - iterative with hashmap
+
+function vowels(str) {
+	const vowels = { a: 1, e: 1, i: 1, o: 1, u: 1 };
+
+	let count = 0;
+
+	for (let char of str.toLowerCase()) {
+		if (vowels[char]) {
+			count++;
+		}
+	}
+
+	return count;
+}
 
 module.exports = vowels;
