@@ -10,12 +10,12 @@
 
 // solution #1 - recursive solution
 
-function fib(n) {
-	if (n <= 1) {
-		return n;
-	}
-	return fib(n - 1) + fib(n - 2);
-}
+// function fib(n) {
+// 	if (n <= 1) {
+// 		return n;
+// 	}
+// 	return fib(n - 1) + fib(n - 2);
+// }
 
 // solution #2 - iterative solution
 
@@ -35,5 +35,20 @@ function fib(n) {
 // }
 
 // fib(5);
+
+// solution #3 - recursive solution advanced with memoization
+
+function fib(n, key = {}) {
+	if (n <= 1) {
+		return n;
+  }
+  
+  if (key[n]) {
+    return key[n]
+  } else {
+    key[n] = fib(n - 1, key) + fib(n - 2, key);
+    return fib(n - 1, key) + fib(n - 2, key);
+  }
+}
 
 module.exports = fib;
