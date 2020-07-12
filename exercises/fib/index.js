@@ -38,17 +38,44 @@
 
 // solution #3 - recursive solution advanced with memoization
 
-function fib(n, key = {}) {
-	if (n <= 1) {
+// function fib(n, key = {}) {
+// 	if (n <= 1) {
+// 		return n;
+//   }
+
+//   if (key[n]) {
+//     return key[n]
+//   } else {
+//     key[n] = fib(n - 1, key) + fib(n - 2, key);
+//     return fib(n - 1, key) + fib(n - 2, key);
+//   }
+// }
+
+// solution #4 - memoize with function
+
+function slowFib(n) {
+	if (n < 2) {
 		return n;
-  }
-  
-  if (key[n]) {
-    return key[n]
-  } else {
-    key[n] = fib(n - 1, key) + fib(n - 2, key);
-    return fib(n - 1, key) + fib(n - 2, key);
-  }
+	}
+
+	return fib(n - 1) + fib(n - 2);
 }
+
+function memoize(fn) {
+	const cache = {};
+
+	return function (...args) {
+		if (cache[args]) {
+			return cache[args];
+		}
+
+		const result = fn.apply(this, args);
+		cache[args] = result;
+
+		return result;
+	};
+}
+
+fib = memoize(slowFib);
 
 module.exports = fib;
