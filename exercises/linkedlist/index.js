@@ -3,25 +3,35 @@
 // See 'directions' document
 
 class Node {
-  constructor (data, next = null) {
-    this.data = data;
-    this.next = next;
-    return this;
-  }
+	constructor(data, next = null) {
+		this.data = data;
+		this.next = next;
+		return this;
+	}
 }
 
 class LinkedList {
-  constructor() {
-    this.head = null;
-  }
+	constructor() {
+		this.head = null;
+	}
 
-  insertFirst(data) {
-    if (this.head === null) {
-      this.head = new Node(data)
-    } else {
-      this.head = new Node(data, this.head)
-    }
-  }
+	insertFirst(data) {
+		if (this.head === null) {
+			this.head = new Node(data);
+		} else {
+			this.head = new Node(data, this.head);
+		}
+	}
+
+	size() {
+		let count = 0;
+		let current = this.head;
+		while (current) {
+			count++;
+			current = current.next;
+		}
+		return count;
+	}
 }
 
 module.exports = { Node, LinkedList };
