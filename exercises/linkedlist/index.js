@@ -31,10 +31,20 @@ class LinkedList {
 			current = current.next;
 		}
 		return count;
+	}
+
+	getFirst() {
+		return this.head;
   }
   
-  getFirst() {
-    return this.head
+  getLast() {
+    let current = this.head;
+
+    while (current.next !== null) {
+      current = current.next;
+    }
+    
+    return current;
   }
 }
 
