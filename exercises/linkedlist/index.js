@@ -40,11 +40,12 @@ class LinkedList {
 	getLast() {
 		let current = this.head;
 
-		while (current.next !== null) {
+		while (current !== null) {
+			if (current.next === null) {
+				return current;
+			}
 			current = current.next;
 		}
-
-		return current;
 	}
 
 	clear() {
@@ -76,7 +77,39 @@ class LinkedList {
 	}
 
 	insertLast(data) {
-		this.getLast().next = new Node(data);
+		if (this.getLast()) {
+			this.getLast().next = new Node(data);
+		} else {
+			this.head = new Node(data);
+		}
+	}
+
+	getAt(n) {
+		if (this.head === null) {
+			return null;
+		}
+
+		let current = this.head;
+		let count = 0;
+		while (count < n) {
+			if (current === null) {
+				return null;
+			}
+			current = current.next;
+			count++;
+		}
+
+		return current;
+	}
+
+	removeAt(n) {
+		if (this.getAt(n) === null) {
+			return null;
+		} else if (this.getAt(n) === this.head) {
+			this.head = this.getAt(n + 1);
+		} else {
+			this.getAt(n - 1).next = this.getAt(n).next;
+		}
 	}
 }
 
