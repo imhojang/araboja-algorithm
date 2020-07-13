@@ -125,21 +125,20 @@ class LinkedList {
 				this.getLast().next = new Node(data);
 			}
 		}
-  }
-  
-  forEach(callback) {
-    if (this.head === null) {
-      return null;
-    } else {
-      let current = this.head;
+	}
 
-      while (current) {
-        callback(current);
-        current = current.next;
-      }
-      
-    }
-  }
+	forEach(callback) {
+		if (this.head === null) {
+			return null;
+		} else {
+			let current = this.head;
+
+			while (current) {
+				callback(current);
+				current = current.next;
+			}
+		}
+	}
 }
 
 module.exports = { Node, LinkedList };
