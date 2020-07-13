@@ -49,32 +49,35 @@ class LinkedList {
 
 	clear() {
 		this.head = null;
-  }
-  
-  removeFirst() {
-    this.head = this.head.next;
-  }
+	}
 
-  removeLast() {
-    if (this.head === null) {
-      return null;
-    }
+	removeFirst() {
+		this.head = this.head.next;
+	}
 
-    if (this.head.next === null) {
-      this.head = null;
-    } else {
-      let current = this.head;
-      let prev;
+	removeLast() {
+		if (this.head === null) {
+			return null;
+		}
 
-      while (current.next !== null) {
-        prev = current;
-        current = current.next;
-      }
+		if (this.head.next === null) {
+			this.head = null;
+		} else {
+			let current = this.head;
+			let prev;
 
-      prev.next = null;
-    }
+			while (current.next !== null) {
+				prev = current;
+				current = current.next;
+			}
 
-  }
+			prev.next = null;
+		}
+	}
+
+	insertLast(data) {
+		this.getLast().next = new Node(data);
+	}
 }
 
 module.exports = { Node, LinkedList };
