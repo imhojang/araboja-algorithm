@@ -42,14 +42,14 @@ class Tree {
 	}
 
 	traverseDF(fn) {
-    let array = [this.root];
+		let array = [this.root];
 
-    while (array.length) {
-      const currentNode = array.shift();
-      array.unshift(...currentNode.children);
-      fn(currentNode);
-    }
-  }
+		while (array.length) {
+			const currentNode = array.shift();
+			array.unshift(...currentNode.children);
+			fn(currentNode);
+		}
+	}
 }
 
 module.exports = { Tree, Node };
